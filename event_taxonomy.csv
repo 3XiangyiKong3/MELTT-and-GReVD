@@ -1,0 +1,24 @@
+data.source,base.categories,Level_1,Level_2,Level_3,Level_4
+ACLED,Non-violent transfer of territory ,Territorial Dispute,Nonviolent Possession,Nonviolent Action,Nonviolent Event
+ACLED,Headquarters or base established ,Territorial Dispute,Nonviolent Possession,Nonviolent Action,Nonviolent Event
+ACLED,Protests,Protest/Demonstration,Nonviolent Displays,Nonviolent Action,Nonviolent Event
+ACLED,Non-violent activity by a conflict actor ,Protest/Demonstration,Nonviolent Displays,Nonviolent Action,Nonviolent Event
+ACLED,Riots,Violent Protest/Demonstration,Violent Displays,Violent Action,Violent Event
+ACLED,Battle-Non-state actor overtakes territory ,Territorial Dispute,Violent Possession,Violent Attack,Violent Event
+ACLED,Battle-Government regains territory ,Territorial Dispute,Violent Possession,Violent Attack,Violent Event
+ACLED,Battle-No change of territory ,Territorial Dispute,Violent Attack,Violent Attack,Violent Event
+ACLED,Remote violence ,Strategic Destruction,Violent Attack (Bombing),Violent Attack,Violent Event
+ACLED,Violence against civilians ,Atrocity ,Violent Attack (Against Civilians),Violent Attack,Violent Event
+ACLED,Strategic development,Protest/Demonstration,Nonviolent Displays,Nonviolent Action,Nonviolent Event
+GED,1,State-led Violence,Violent Attack,Violent Attack,Violent Event
+GED,2,Opposition-led Violence,Violent Attack (No State),Violent Attack,Violent Event
+GED,3,Atrocity,Violent Attack (Against Civilians),Violent Attack,Violent Event
+GTD,4,Coercion,Violent Possession,Violent Action,Violent Event
+GTD,5,Coercion,Violent Possession,Violent Action,Violent Event
+GTD,6,Coercion,Violent Possession,Violent Action,Violent Event
+GTD,3,Strategic Destruction,Violent Attack (Bombing),Violent Attack,Violent Event
+GTD,1,Strategic Assault,Violent Attack ,Violent Attack,Violent Event
+GTD,2,Strategic Assault,Violent Attack,Violent Attack,Violent Event
+GTD,8,Strategic Assault,Violent Attack,Violent Attack,Violent Event
+GTD,9,Strategic Assault,Violent Attack,Violent Attack,Violent Event
+GTD,7,Strategic Destruction,Violent Attack,Violent Attack,Violent Event

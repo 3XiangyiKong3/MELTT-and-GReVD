@@ -1,0 +1,16 @@
+data.source,base.categories,Level_1,Level_2,Level_3,Level_4
+GED,1,"exact town, area, city, village",Close,Subregional,precise
+GED,2,"fuzzy space around town, city, village (outskirts, checkpoints)",Close,Subregional,imprecise
+GED,3,within a 2nd order admin region,Admin Unit,Subregional,imprecise
+GED,4,within a 1st order admin region,Admin Unit,Subnational,imprecise
+GED,5,within country,Country Unit,National,imprecise
+GED,6,within country,Country Unit,National,imprecise
+GED,7,unknown or other,Unknown,Unknown,imprecise
+ACLED,1,"exact town, area, city, village",Close,Subregional,precise
+ACLED,2,within a 2nd order admin region,Admin Unit,Subregional,imprecise
+ACLED,3,within a 1st order admin region,Admin Unit,Subnational,imprecise
+GTD,1,"exact town, area, city, village",Close ,Subregional,precise
+GTD,2,"fuzzy space around town, city, village (outskirts, checkpoints)",Close,Subregional,imprecise
+GTD,3,within a 2nd order admin region,Admin Unit,Subregional,imprecise
+GTD,4,within a 1st order admin region,Admin Unit,Subnational,imprecise
+GTD,5,unknown or other,Unknown,Unknown,imprecise

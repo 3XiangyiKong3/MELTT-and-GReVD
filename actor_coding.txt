@@ -1,0 +1,86 @@
+Actor Taxonomy Codebook v.0.1 (March 2022)
+
+This basic codebook describes the coding process and categories used to generate the file "actor_taxonomy.csv" used as an input to match actor information in the MELTT data integration procedure for three datasets (for all of Africa, current as of March 2020):
+- GTD (field used: "gname")
+- ACLED (field used: "ACTOR1")
+- UCDP-GED (field used: "side_a")
+[For how to deal with side_a vs. side_b in UCDP-GED, see for example the chapter "D.2.4 Taxonomy Adjustment" in the online appendix for Donnay et al. (2019)]
+
+The basic premise of the actor coding is to define broad categories that allow to match sufficiently similar events across datasets. This distinction is ultimately always arbitrary to some degree but it helps formalise which entries are considered more similar than others. We have opted for a three-level taxonomy that uses subsequently larger categories - this, too, is a convention only and can be adjusted.
+
+*Level-1 Coding*
+
+The key coding step though is to go from the coding in the respective datasets ("base.categories") to the first level of aggregation ("level_1"). In this step, we worked with a total of 12 categories and one category to capture all events for which actor groups were unknown. 
+
+We used the following for "Level_1". Note that some of those categories only apply to non-violent actions, which are not coded across all datasets, we have separately listed them here under B):
+
+A) Actors associated with violent events:
+
+- military:
+This encompasses all regular military personell of the country in question, i.e., all regular government military.
+
+- security forces:
+This encompasses all other security forces associated with the government of the country in question, including police but also other clearly government affiliated militias or security forces.
+
+- armed group:
+This corresponds to any organised armed, non-state actor group that is identified as the actor.
+
+- violent civilians:
+This refers to any civilians (not named to be associated with any particular group or movement) that are named as actors in violent events. In particular, this encompasses rioters.
+
+- peacekeepers:
+This corresponds to (international) peacekeeping missions that resort to the use of force in a given conflict and are named as actors in a violent event.
+
+
+B) Actors associated with non-violent events:
+
+- government: 
+This codes all events where any other non-military and non-security forces government department, ministry etc. are identified as the actor in a non-violent event.
+
+- political party:
+This codes all events where any political party (in government or not) are singled out as the responsible actor in a non-violent event.
+
+- ethnic group:
+This corresponds to any ethnic group named as the actor group in a non-violent event, i.e., an armed ethnic group would be coded as armed group.
+
+- religious group:
+This corresponds to any religious group named explicitly as an actor group in a non-violent event, i.e., an armed religious group would be coded as armed group.
+
+- protesters:
+This refers to non-violent events where protesters are explicitly identified as the actors.
+
+- civilians:
+This refers to any other civilian actors named in non-violent events.
+
+- movements:
+This corresponds to broader political movements names as actors in non-violent events.
+
+- unknown:
+This codes all events for which no actor was named or could be coded from the data.
+
+
+*Level-2 coding*
+
+The categories are then aggregated for "Level_2" as follows:
+- violent political groups:
+military, security forces, armed group, peacekeepers
+
+- nonviolent political groups:
+government, political party
+
+- violent civilian groups:
+violent civilians
+
+- nonviolent civilian groups:
+ethnic group, religious group, civilians, movements, protesters
+
+
+* Level-3 coding*
+
+At the highest level of aggregation we only distinguish between violent and nonviolent groups (unknown are considered with violent groups for this purpose).
+
+- violent groups:
+military, security forces, armed group, peacekeepers, violent civilians, unknown
+
+- nonviolent groups:
+government, political party, ethnic group, religious group, civilians, movements, protesters

@@ -8,22 +8,110 @@ date: '2022-03-28'
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r}
+library(meltt)
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+# readin pre cleaned data from local stage c ipynb 
+# acled_base <- read.csv('acled_baseAB.csv')
+# gtd_base <- read.csv('gtd_baseAB.csv')
+# ucdp_base <- read.csv('ucdp_baseAB.csv')
+grevd_base <- read.csv('grevd_baseAB.csv')
+actor_taxonomy <- read.csv('actor_taxonomy.csv')
+event_taxonomy <- read.csv('event_taxonomy.csv')
+spatial_precision_taxonomy <- read.csv('spatial_precision_taxonomy.csv')
+grevd_base <- grevd_base[!(is.na(grevd_base$longitude) | is.na(grevd_base$latitude)), ]
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+#change the column to type date 
+grevd_base$date <- as.Date(grevd_base$date)
+#acled_base$date <- as.Date(acled_base$date , format = "%y/%m/%d")
+#gtd_base$date <- as.Date(gtd_base$date , format = "%y/%m/%d")
+#ucdp_base$date <- as.Date(ucdp_base$date, format = "%y/%m/%d")
+#grevd_base <- grevd_base[!(is.na(grevd_base$longitude) | is.na(grevd_base$latitude)), ]
+```
+
+```{r}
+colnames(grevd_base)[which(names(grevd_base) == "geo_precision")] <- "spatial_precision_taxonomy"
+ACLED <- grevd_base[grevd_base['eventid_source_no'] == 1001,]
+GTD <- grevd_base[grevd_base['eventid_source_no'] == 1002,]
+GED <- grevd_base[grevd_base['eventid_source_no'] == 1003,]
+temp_spatial_tax <- list(spatial_precision_taxonomy = spatial_precision_taxonomy)
+```
+
+
+```{r}
+ACLED <-subset(ACLED, spatial_precision_taxonomy!= 4 )
+```
+
+```{r}
+temp_ACLED <- ACLED
+samller_ACLED <-  temp_ACLED[sample(nrow(temp_ACLED), size = 5000, replace = FALSE), ]
+unique(samller_ACLED['spatial_precision_taxonomy'])
+```
+
+```{r}
+ACLED <- samller_ACLED
+```
+
+```{r}
+temp_GTD <- GTD
+samller_GTD <-  temp_GTD[sample(nrow(temp_GTD), size = 5000, replace = FALSE), ]
+unique(samller_GTD['spatial_precision_taxonomy'])
+```
+
+```{r}
+GTD <- samller_GTD
+```
+
+
+
+```{r}
+temp_GED <- GED
+samller_GED <-  temp_GED[sample(nrow(temp_GED), size = 5000, replace = FALSE), ]
+unique(samller_GED['spatial_precision_taxonomy'])
+```
+
+```{r}
+GED <- samller_GED
+```
+
+
+
+```{r}
+#apply meltt
+base_output <- meltt(ACLED,GTD,GED,
+                taxonomies = temp_spatial_tax,
+                spatwindow = 1,
+                twindow = 1)
+```
+```{r}
+base_output
+```
+
+```{r}
+summary(base_output)
+```
+
+```{r}
+plot(base_output)
+```
+
+```{r}
+t1 <- tplot(base_output, time_unit="days")
+t2 <- tplot(base_output, time_unit="weeks")
+gridExtra::grid.arrange(t1,t2)
+```
+```{r}
+mplot(base_output)
+```
+
+
+```{r}
+mplot(base_output, matching = TRUE)
+```
+
